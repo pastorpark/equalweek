@@ -166,5 +166,13 @@ footer small{display:block;margin-top:26px;color:#8fb3c4}
   section{padding:64px 0}
 }
 @media(max-width:520px){
-  .grid{grid-template-columns:1fr}
+  .grid{gap:10px}
+  .card{padding:8px 8px 14px;border-radius:18px}
+  .card .poster{border-radius:12px}
+  .card .info{padding:12px 4px 0}
+  .card h3{font-size:15px}
+  .card .line{font-size:12.5px}
+  .card .when{font-size:12px;margin-top:10px;padding-top:10px}
+  .card .when b{font-size:12.5px}
+  .card .eyebrow-s{font-size:11px}
 }
