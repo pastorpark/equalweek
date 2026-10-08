@@ -7,7 +7,8 @@
     if (!res.ok) throw new Error(res.status);
     ({ categories: CATS, events: E } = await res.json());
   } catch (err) {
-    document.getElementById('loaderr').hidden = false;
+    document.getElementById('grid').textContent =
+      '프로그램 정보를 불러오지 못했습니다. 파일을 직접 열었다면 로컬 서버(python3 -m http.server)로 확인해 주세요.';
     return;
   }
 
@@ -22,8 +23,6 @@
   const safeUrl = u => /^https?:\/\//i.test(u) ? u : '';
   const mapUrl = e => `https://map.naver.com/p/search/${encodeURIComponent(e.addr || e.place)}`;
 
-  let openDetail = () => {}; // 아래 프로그램 블록에서 연결
-
   // 캘린더 (2026년 11월 1일 = 일요일)
   (function(){
     const cal = $('#cal'), start = new Date(2026,10,1).getDay();
@@ -36,7 +35,10 @@
     }
     cal.addEventListener('click', ev=>{
       const b = ev.target.closest('[data-go]'); if(!b) return;
-      openDetail(b.dataset.go);
+      $('#filters [data-f="all"]').click();
+      const card = document.getElementById('p-'+b.dataset.go);
+      card.scrollIntoView({behavior:'smooth',block:'center'});
+      card.classList.add('flash'); setTimeout(()=>card.classList.remove('flash'),1600);
     });
     $('#legend').innerHTML = '<span><i class="lg-open"></i>오픈 포럼 · 클로징 예배</span><span><i class="lg-etc"></i>프로그램</span>';
   })();
@@ -75,7 +77,7 @@
 
     // 모달
     const dlg = $('#modal');
-    const open = openDetail = id => {
+    const open = id => {
       const e = byId[id], [pre,name] = split(e.title);
       const sess = e.dates.length>1 ? `<h4>커리큘럼</h4><ul class="sess">${e.dates.map((n,i)=>
         `<li><b>${i+1}회</b><span>${dayLabel(n)}</span><em>${e.themes?esc(e.themes[i]):'주제 추후 공개'}</em></li>`).join('')}</ul>` : '';
@@ -100,11 +102,13 @@
             ? `<a class="btn fill" href="${esc(safeUrl(e.apply))}" target="_blank" rel="noopener">신청하기</a>`
             : `<span class="btn off">신청 링크 준비 중</span>`}</div>
         </div></div>`;
+      document.body.style.overflow = 'hidden';
       dlg.showModal(); dlg.scrollTop = 0;
     };
     grid.addEventListener('click', ev=>{ const c = ev.target.closest('[data-open]'); if(c) open(c.dataset.open); });
     grid.addEventListener('keydown', ev=>{ if((ev.key==='Enter'||ev.key===' ') && ev.target.matches('[data-open]')){ ev.preventDefault(); open(ev.target.dataset.open); }});
     dlg.addEventListener('click', ev=>{ if(ev.target===dlg || ev.target.closest('[data-close]')) dlg.close(); });
+    dlg.addEventListener('close', ()=>{ document.body.style.overflow=''; });
   })();
 
   // 스탬프
@@ -126,22 +130,6 @@
       draw();
     });
     draw();
-  })();
-
-  // 메뉴 패널 (떠다니는 섬 → 모달)
-  (function(){
-    const open = key => {
-      const d = document.getElementById('d-'+key); if(!d) return;
-      if(!d.open){ d.showModal(); d.scrollTop = 0; }
-      history.replaceState(null,'','#'+key);
-    };
-    document.querySelectorAll('[data-panel]').forEach(b=>b.addEventListener('click',()=>open(b.dataset.panel)));
-    document.querySelectorAll('dialog.panel').forEach(d=>{
-      d.addEventListener('click', ev=>{ if(ev.target===d || ev.target.closest('[data-close]')) d.close(); });
-      d.addEventListener('close', ()=>{ if(!d.id || d.id==='modal') return; history.replaceState(null,'',location.pathname+location.search); });
-    });
-    const h = location.hash.slice(1);
-    if(h) open(h);
   })();
 
   // 주관 단체

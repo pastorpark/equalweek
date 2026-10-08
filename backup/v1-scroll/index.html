@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
 <title>환대의 항해 | 2026 따뜻한 소란 평등한 우리</title>
@@ -15,32 +15,67 @@
 </head>
 <body>
 
-<h1 class="sr">환대의 항해 — 2026 따뜻한 소란 평등한 우리 (11월 2일부터 11월 27일까지, 서울 일대에서)</h1>
-
-<!-- 배경: 포스터 -->
-<div class="stage" aria-hidden="true">
-  <div class="stage-blur"></div>
-  <img src="assets/img/poster.jpeg" alt="">
-</div>
-
-<!-- 떠다니는 섬 메뉴 -->
-<nav class="isles" aria-label="주요 메뉴">
-  <button class="isle i1" data-panel="intro"><span class="nm">소개</span><span class="sb">환대의 항해로 초대합니다</span></button>
-  <button class="isle i2" data-panel="calendar"><span class="nm">캘린더</span><span class="sb">11월 항해 지도</span></button>
-  <button class="isle i3" data-panel="programs"><span class="nm">프로그램</span><span class="sb">기항지 안내</span></button>
-  <button class="isle i4" data-panel="stamp"><span class="nm">스탬프</span><span class="sb">항해 스탬프 엽서</span></button>
+<nav>
+  <div class="wrap">
+    <b>환대의 항해</b>
+    <ul>
+      <li><a href="#greeting">초대</a></li>
+      <li><a href="#calendar">캘린더</a></li>
+      <li><a href="#programs">프로그램</a></li>
+      <li><a href="#stamp">스탬프</a></li>
+      <li><a href="#about">주관</a></li>
+    </ul>
+  </div>
 </nav>
 
-<p class="dock"><span>⛵ 섬을 눌러 항해를 시작하세요</span><span class="dk-host">주관 차별과혐오없는세상을바라는그리스도인네트워크</span></p>
-<p class="loaderr" id="loaderr" hidden>프로그램 정보를 불러오지 못했습니다. 파일을 직접 열었다면 로컬 서버(python3 -m http.server)로 확인해 주세요.</p>
-<noscript><p class="loaderr">이 페이지는 JavaScript가 필요합니다.</p></noscript>
+<header class="hero">
+  <svg class="hero-bg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <path id="sea" d="M120 260C160 140 340 120 420 190C520 90 760 100 820 230C940 200 1100 280 1060 420C1160 500 1100 660 940 660C880 760 640 760 600 680C480 760 260 740 240 620C100 600 40 400 120 260Z"/>
+    </defs>
+    <use href="#sea" fill="#72bdda" stroke="#72bdda" stroke-width="150" stroke-linejoin="round"/>
+    <use href="#sea" fill="#58a6c5"/>
+    <g fill="none" stroke="#1d2b3a" stroke-opacity=".55" stroke-width="1.6" stroke-dasharray="5 7">
+      <path d="M-20 120C120 60 200 160 120 240S0 320 -20 350"/>
+      <path d="M-20 560C100 600 120 700 60 820"/>
+      <path d="M1220 640C1100 700 1010 650 930 800"/>
+    </g>
+    <g transform="translate(1075 120)" stroke-linejoin="round">
+      <circle r="62" fill="#f5c391" stroke="#c98a4e" stroke-width="3"/>
+      <circle r="46" fill="#fff4c4" stroke="#c98a4e" stroke-width="2"/>
+      <path d="M0-92L11-11L92 0L11 11L0 92L-11 11L-92 0L-11-11Z" fill="#e8875a" stroke="#8a4a2a" stroke-width="2.5"/>
+      <path d="M0-92L11-11L0 0Z M92 0L11 11L0 0Z M0 92L-11 11L0 0Z M-92 0L-11-11L0 0Z" fill="#fff4c4" stroke="#8a4a2a" stroke-width="2.5"/>
+      <path d="M-50-50L-8-8M50-50L8-8M50 50L8 8M-50 50L-8 8" stroke="#c98a4e" stroke-width="5" stroke-linecap="round"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">2026 따뜻한 소란 평등한 우리</p>
+    <h1 class="title" aria-label="환대의 항해">
+      <svg viewBox="-60 -10 780 470" aria-hidden="true" stroke-linejoin="round" stroke-linecap="round">
+        <defs><g id="t" font-family="Pretendard Variable, Pretendard, sans-serif" font-weight="900" font-size="170" letter-spacing="-7"><text x="30" y="170">환대의</text><text x="250" y="390">항해</text></g></defs>
+        <use href="#t" fill="#8cc9de" stroke="#8cc9de" stroke-width="96"/>
+        <use href="#t" fill="#c9b27a" stroke="#c9b27a" stroke-width="44"/>
+        <use href="#t" fill="#fff4c4" stroke="#fff4c4" stroke-width="36"/>
+        <use href="#t" fill="#a7d1a1"/>
+      </svg>
+    </h1>
+    <p class="sub">11월 한 달 동안 따뜻한 소란을 일으켜<br>환대와 평등을 향해 나아가는 그리스도인의 축제가 열립니다!</p>
+    <div class="meta">
+      <span>11월 2일부터 11월 27일까지</span>
+      <span>서울 일대에서</span>
+      <span>주관 차별과혐오없는세상을바라는그리스도인네트워크</span>
+    </div>
+    <div class="cta">
+      <a class="btn fill" href="#calendar">항해 일정 보기</a>
+      <a class="btn ghost" href="#stamp">스탬프 여정 시작</a>
+    </div>
+  </div>
+</header>
 
-<!-- 1. 소개 -->
-<dialog id="d-intro" class="panel" aria-labelledby="t-intro">
-  <div class="panel-in">
-    <button class="x" data-close aria-label="닫기">✕</button>
+<section id="greeting" class="greet">
+  <div class="wrap">
     <p class="kicker">INVITATION</p>
-    <h2 id="t-intro">환대의 항해로 초대합니다</h2>
+    <h2>환대의 항해로 초대합니다</h2>
     <div class="body">
       <p>‘따뜻한 소란 평등한 우리’가 올해로 세 번째를 맞았습니다. 올해 주제는 “환대의 항해”입니다.</p>
       <p>차별과 혐오에 맞서 평등을 향해 걸어온 길이 늘 순탄했던 것은 아닙니다. 때로는 거센 물결을 만나고, 먼 길을 돌아오기도 했습니다. 그래도 우리는 저마다의 자리에서 서로의 존재를 알아보고 곁을 내어주며 여기까지 함께 항해해 왔습니다. 누군가는 목소리를 냈고, 누군가는 공부하고 가르쳤으며, 누군가는 곁에 서고 자리를 만들었습니다. 그렇게 크고 작은 실천들이 이어지며 우리의 항로를 만들어 왔습니다.</p>
@@ -63,53 +98,48 @@
         <dl><dt>일시</dt><dd>11월 27일(금) 저녁 7시 30분</dd><dt>장소</dt><dd>성공회 대학로 교회 대성전</dd></dl>
       </article>
     </div>
-
-    <div class="about">
-      <h3>따뜻한 소란 평등한 우리</h3>
-      <p>차별과 혐오 없는 세상을 바라는 그리스도인 네트워크가 매년 11월 환대와 평등을 주제로 여는 프로그램입니다. 1회 「따뜻한 소란 평등한 우리」, 2회 「환대의 빈의자」에 이어 3회 「환대의 항해」로 이어집니다.</p>
-      <p class="orgs" id="orgs"></p>
-      <small>© 2026 차별과혐오없는세상을바라는그리스도인네트워크 · 문의/후원 링크는 추후 안내됩니다</small>
-    </div>
   </div>
-</dialog>
+</section>
 
-<!-- 2. 캘린더 -->
-<dialog id="d-calendar" class="panel" aria-labelledby="t-calendar">
-  <div class="panel-in">
-    <button class="x" data-close aria-label="닫기">✕</button>
+<section id="calendar">
+  <div class="wrap">
     <p class="kicker">CALENDAR</p>
-    <h2 id="t-calendar">11월 항해 지도</h2>
-    <p class="lead">일정을 누르면 프로그램 상세가 열립니다.</p>
+    <h2>11월 항해 지도</h2>
+    <p class="lead">일정을 누르면 프로그램 상세로 이동합니다.</p>
     <div class="cal" id="cal"></div>
     <div class="legend" id="legend"></div>
   </div>
-</dialog>
+</section>
 
-<!-- 3. 프로그램 -->
-<dialog id="d-programs" class="panel" aria-labelledby="t-programs">
-  <div class="panel-in">
-    <button class="x" data-close aria-label="닫기">✕</button>
+<section id="programs" class="programs">
+  <div class="wrap">
     <p class="kicker">PROGRAMS</p>
-    <h2 id="t-programs">기항지 안내</h2>
+    <h2>기항지 안내</h2>
     <p class="lead">단체마다 다른 배가 같은 바다에서 만납니다. 관심 있는 항로를 골라보세요.</p>
     <div class="filters" id="filters"></div>
     <div class="grid" id="grid"></div>
   </div>
-</dialog>
+</section>
 
-<!-- 4. 스탬프 -->
-<dialog id="d-stamp" class="panel" aria-labelledby="t-stamp">
-  <div class="panel-in">
-    <button class="x" data-close aria-label="닫기">✕</button>
+<section id="stamp" class="stamp-sec">
+  <div class="wrap">
     <p class="kicker">STAMP TOUR</p>
-    <h2 id="t-stamp">항해 스탬프 엽서</h2>
+    <h2>항해 스탬프 엽서</h2>
     <p class="lead">현장에서 받는 엽서에 프로그램마다 스탬프를 찍어 보세요. 여기서는 참여한 행사를 눌러 나만의 항해 기록을 남길 수 있어요. (이 기기에만 저장됩니다)</p>
     <div class="postcard" id="postcard"></div>
     <p class="progress" id="progress"></p>
   </div>
-</dialog>
+</section>
 
-<!-- 프로그램 상세 (패널 위에 겹쳐 열림) -->
+<footer id="about">
+  <div class="wrap">
+    <h3>따뜻한 소란 평등한 우리</h3>
+    <p>차별과 혐오 없는 세상을 바라는 그리스도인 네트워크가 매년 11월 환대와 평등을 주제로 여는 프로그램입니다. 1회 「따뜻한 소란 평등한 우리」, 2회 「환대의 빈의자」에 이어 3회 「환대의 항해」로 이어집니다.</p>
+    <p class="orgs" id="orgs"></p>
+    <small>© 2026 차별과혐오없는세상을바라는그리스도인네트워크 · 문의/후원 링크는 추후 안내됩니다</small>
+  </div>
+</footer>
+
 <dialog id="modal" aria-label="프로그램 상세"></dialog>
 
 <script src="assets/js/app.js" defer></script>
