@@ -142,11 +142,12 @@ dialog.panel{width:min(1100px,calc(100% - 24px))}
 .filters button{font:inherit;font-size:14px;font-weight:600;padding:7px 18px;border-radius:999px;border:1.5px solid var(--sea-4);background:transparent;color:var(--sea-deep);cursor:pointer;transition:.15s}
 .filters button:hover{background:#fff}
 .filters button[aria-pressed=true]{background:var(--land);border-color:var(--land-deep);color:var(--ink)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.card{background:#fff;border-radius:24px;padding:12px 12px 18px;border:1.5px solid var(--coast);display:flex;flex-direction:column;cursor:pointer;transition:transform .2s,box-shadow .3s}
+.grid{display:flex;flex-direction:column;gap:14px}
+.card{background:#fff;border-radius:24px;padding:12px;border:1.5px solid var(--coast);display:flex;flex-direction:row;gap:16px;cursor:pointer;transition:transform .2s,box-shadow .3s}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 0 -2px rgba(88,166,197,.35)}
 .card:focus-visible{outline:3px solid var(--sea-4);outline-offset:2px}
-.card .info{padding:16px 6px 0;display:flex;flex-direction:column;flex:1}
+.card .poster{width:150px;flex:none}
+.card .info{padding:2px 2px 2px 0;display:flex;flex-direction:column;flex:1;min-width:0}
 .card .eyebrow-s{font-size:12px;font-weight:700;color:var(--land-deep)}
 .card h3{font-size:18px;margin:4px 0 6px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card .line{font-size:14px;color:var(--muted);flex:1}
@@ -190,24 +191,28 @@ dialog#modal{width:min(940px,calc(100% - 24px))}
 @media(max-width:820px){
   .panel-in{padding:28px 20px 36px}
   .panel .x{margin:-12px -8px 0 0}
-  .grid{grid-template-columns:repeat(2,1fr)}
   .hl{grid-template-columns:1fr}
-  .cal{grid-template-columns:1fr}
-  .dow,.day.empty{display:none}
-  .day{min-height:0}
-  .day:not(:has(.chip)){display:none}
-  .day .w{display:inline;margin-left:4px}
 }
 @media(max-width:720px){.m{grid-template-columns:1fr;gap:20px;padding:20px}.m .side .poster{max-width:240px;margin:0 auto}.m .sess li{grid-template-columns:38px 88px 1fr}}
 @media(max-width:520px){
   dialog{border-radius:22px}
   .grid{gap:10px}
-  .card{padding:8px 8px 14px;border-radius:18px}
-  .card .poster{border-radius:12px}
-  .card .info{padding:12px 4px 0}
+  .card{padding:8px;border-radius:18px;gap:10px}
+  .card .poster{width:96px;border-radius:12px}
+  .card .info{padding:0}
   .card h3{font-size:15px}
   .card .line{font-size:12.5px}
   .card .when{font-size:12px;margin-top:10px;padding-top:10px}
   .card .when b{font-size:12.5px}
   .card .eyebrow-s{font-size:11px}
+}
+@media(max-width:600px){
+  dialog.panel,dialog#modal{width:100%;height:100%;max-width:100%;max-height:100%;max-height:100dvh;margin:0;border-radius:0;border:0}
+  .panel-in{padding-top:max(28px,env(safe-area-inset-top));padding-bottom:max(36px,env(safe-area-inset-bottom))}
+  .m{padding-top:max(20px,env(safe-area-inset-top));padding-bottom:max(20px,env(safe-area-inset-bottom))}
+  .cal{grid-template-columns:1fr}
+  .dow,.day.empty{display:none}
+  .day{min-height:0}
+  .day:not(:has(.chip)){display:none}
+  .day .w{display:inline;margin-left:4px}
 }
