@@ -25,6 +25,9 @@ h2,h3{line-height:1.3;font-weight:800;letter-spacing:-.03em}
 @media(orientation:landscape){
   .stage img{width:auto;max-width:100%;margin:auto;object-fit:cover;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
 }
+@media(min-width:701px){
+  .stage img{width:100%;height:100%;margin:0;object-fit:cover;object-position:center;-webkit-mask-image:linear-gradient(180deg,#000 90%,transparent);mask-image:linear-gradient(180deg,#000 90%,transparent)}
+}
 
 /* ===== 떠다니는 섬 ===== */
 /* 세로 화면(모바일): 아래쪽에 한 줄 */
@@ -119,14 +122,20 @@ dialog.panel{width:min(1100px,calc(100% - 24px))}
 .day.empty{background:transparent;border:1.5px dashed var(--sea-1)}
 .day .n{font-size:12.5px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px}
 .day .w{display:none}
-.chip{display:block;width:100%;text-align:left;font:inherit;font-size:12px;font-weight:500;line-height:1.35;padding:5px 8px;margin-top:4px;border:0;border-radius:8px;background:#d6ebf2;cursor:pointer;color:var(--ink);transition:.15s}
-.chip:hover{background:var(--sea-3)}
-.chip.star{font-weight:700;background:#ffd9c4}
-.chip.star:hover{background:var(--orange)}
+.chip{display:block;width:100%;text-align:left;font:inherit;font-size:12px;font-weight:500;line-height:1.35;padding:5px 8px 5px 10px;margin-top:4px;border:0;border-left:3px solid var(--cat-c,var(--sea-3));border-radius:8px;background:var(--cat-tint,#d6ebf2);cursor:pointer;color:var(--ink);transition:.15s}
+.chip:hover{filter:brightness(.96)}
+.chip.star{font-weight:700;box-shadow:inset 0 0 0 1.5px var(--cat-c,var(--orange))}
+.chip[data-cat="learn"]{--cat-c:#2a78d6;--cat-tint:#d0e1f6}
+.chip[data-cat="culture"]{--cat-c:#eb6834;--cat-tint:#fbded2}
+.chip[data-cat="pray"]{--cat-c:#1baf7a;--cat-tint:#cdede2}
+.chip[data-cat="make"]{--cat-c:#eda100;--cat-tint:#fbeac7}
 .legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:18px;font-size:13px;color:var(--muted)}
-.legend i.lg-open{background:var(--orange)}
-.legend i.lg-etc{background:var(--sea-3)}
-.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:7px;vertical-align:-1px}
+.legend i.lg-dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:7px;vertical-align:-1px;background:var(--cat-c,var(--muted))}
+.legend i.lg-dot[data-cat="learn"]{--cat-c:#2a78d6}
+.legend i.lg-dot[data-cat="culture"]{--cat-c:#eb6834}
+.legend i.lg-dot[data-cat="pray"]{--cat-c:#1baf7a}
+.legend i.lg-dot[data-cat="make"]{--cat-c:#eda100}
+.legend i.lg-star{background:#fff;box-shadow:inset 0 0 0 1.5px var(--orange)}
 
 /* 프로그램 */
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 28px}

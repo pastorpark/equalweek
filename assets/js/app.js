@@ -29,22 +29,24 @@
     const cal = $('#cal'), start = new Date(2026,10,1).getDay();
     cal.innerHTML = WD.map(w=>`<div class="dow">${w}</div>`).join('');
     for(let i=0;i<start;i++) cal.insertAdjacentHTML('beforeend','<div class="day empty"></div>');
-    for(let n=1;n<=30;n++){
+    for(let n=1;n<=28;n++){
       const chips = E.filter(e=>e.dates.includes(n)).map(e=>
-        `<button class="chip${e.star?' star':''}" data-go="${e.id}">${esc(e.short)}</button>`).join('');
+        `<button class="chip${e.star?' star':''}" data-cat="${e.cat}" data-go="${e.id}">${esc(e.short)}</button>`).join('');
       cal.insertAdjacentHTML('beforeend',`<div class="day"><span class="n">${n}<span class="w">(${WD[new Date(2026,10,n).getDay()]})</span></span>${chips}</div>`);
     }
     cal.addEventListener('click', ev=>{
       const b = ev.target.closest('[data-go]'); if(!b) return;
       openDetail(b.dataset.go);
     });
-    $('#legend').innerHTML = '<span><i class="lg-open"></i>오픈 포럼 · 클로징 예배</span><span><i class="lg-etc"></i>프로그램</span>';
+    $('#legend').innerHTML = Object.entries(CATS).map(([k,c])=>
+      `<span><i class="lg-dot" data-cat="${k}"></i>${esc(c.label)}</span>`).join('') +
+      '<span><i class="lg-dot lg-star"></i>오픈 포럼 · 클로징 예배</span>';
   })();
 
   // 프로그램 카드 + 필터 + 상세 모달
   const split = t => { const k = t.indexOf(' – '); return k<0 ? ['',t] : [t.slice(0,k),t.slice(k+3)]; };
   const dayLabel = n => `11/${n}(${WD[new Date(2026,10,n).getDay()]})`;
-  const POSTER = 'assets/img/poster.jpeg'; // 행사별 포스터가 나오면 각 항목에 poster:'파일경로'를 추가
+  const POSTER = 'assets/img/poster-title.png'; // 행사별 포스터가 나오면 각 항목에 poster:'파일경로'를 추가
   const poster = e => `<div class="poster"><img src="${esc(e.poster||POSTER)}" alt="${e.poster?esc(e.title)+' ':''}포스터" loading="lazy"></div>`;
 
   (function(){
