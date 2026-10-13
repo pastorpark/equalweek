@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
+<title>환대의 항해 | 2026 따뜻한 소란 평등한 우리</title>
+<meta name="description" content="11월 한 달, 따뜻한 소란을 일으켜 환대와 평등을 향해 나아가는 그리스도인의 축제. 2026 따뜻한 소란 평등한 우리 '환대의 항해'의 모든 프로그램을 한곳에서 만나보세요.">
+<meta property="og:title" content="환대의 항해 | 2026 따뜻한 소란 평등한 우리">
+<meta property="og:description" content="11월 한 달, 서로 다른 배들이 같은 바다에 모입니다.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<h1 class="sr">환대의 항해 — 2026 따뜻한 소란 평등한 우리 (11월 2일부터 11월 27일까지, 서울 일대에서)</h1>
+
+<!-- 배경: 포스터 -->
+<div class="stage" aria-hidden="true">
+  <div class="stage-blur"></div>
+  <picture>
+    <source media="(max-width: 700px)" srcset="assets/img/poster-title.png">
+    <img src="assets/img/background.png" alt="">
+  </picture>
+</div>
+
+<!-- 떠다니는 섬 메뉴 -->
+<nav class="isles" aria-label="주요 메뉴">
+  <button class="isle i1" data-panel="intro"><span class="nm">소개</span><span class="sb">환대의 항해로 초대합니다</span></button>
+  <button class="isle i2" data-panel="calendar"><span class="nm">캘린더</span><span class="sb">11월 항해 지도</span></button>
+  <button class="isle i3" data-panel="programs"><span class="nm">프로그램</span><span class="sb">기항지 안내</span></button>
+  <button class="isle i4" data-panel="stamp"><span class="nm">스탬프</span><span class="sb">항해 스탬프 엽서</span></button>
+</nav>
+
+<p class="dock"><span>⛵ 섬을 눌러 항해를 시작하세요</span><span class="dk-host">주관 차별과혐오없는세상을바라는그리스도인네트워크</span></p>
+<p class="loaderr" id="loaderr" hidden>프로그램 정보를 불러오지 못했습니다. 파일을 직접 열었다면 로컬 서버(python3 -m http.server)로 확인해 주세요.</p>
+<noscript><p class="loaderr">이 페이지는 JavaScript가 필요합니다.</p></noscript>
+
+<!-- 1. 소개 -->
+<dialog id="d-intro" class="panel" aria-labelledby="t-intro">
+  <div class="panel-in">
+    <button class="x" data-close aria-label="닫기">✕</button>
+    <p class="kicker">INVITATION</p>
+    <h2 id="t-intro">환대의 항해로 초대합니다</h2>
+    <div class="body">
+      <p>‘따뜻한 소란 평등한 우리’가 올해로 세 번째를 맞았습니다. 올해 주제는 “환대의 항해”입니다.</p>
+      <p>차별과 혐오에 맞서 평등을 향해 걸어온 길이 늘 순탄했던 것은 아닙니다. 때로는 거센 물결을 만나고, 먼 길을 돌아오기도 했습니다. 그래도 우리는 저마다의 자리에서 서로의 존재를 알아보고 곁을 내어주며 여기까지 함께 항해해 왔습니다. 누군가는 목소리를 냈고, 누군가는 공부하고 가르쳤으며, 누군가는 곁에 서고 자리를 만들었습니다. 그렇게 크고 작은 실천들이 이어지며 우리의 항로를 만들어 왔습니다.</p>
+      <p>11월 한 달, 서로 다른 배들이 같은 바다에 모입니다. 성서와 신앙의 언어로 차별금지법과 그리스도인의 책임을 이야기하는 강연으로 문을 연 후, 배움과 대화, 영화와 책, 공방과 강연, 기도와 예배로 항해를 이어갑니다. 서로 다른 자리에서 저마다의 방식으로 평등을 일구어 온 사람들이 만나 묻고 듣고 배우며, 때로는 손을 움직여 만들고 웃으며 기억합니다. 각자의 자리에서 울리던 목소리들이 서로에게 닿고 겹쳐지며 하나의 따뜻한 소란이 됩니다.</p>
+      <p>그리고 한 달의 끝에는 모두 한자리에 모여 연합예배를 드립니다. 우리가 지나온 길과 그 길에서 만난 이들을 기억하고, 서로의 수고와 걸음을 격려하는 자리입니다. 잠시 같은 바다에 모여 서로의 항로를 바라본 우리는 새로운 바람과 힘을 얻어 다시 각자의 자리로 나아갈 것입니다.</p>
+      <p>환대는 어쩌면 누군가를 기다리는 일에 머물지 않고, 서로를 향해 길을 나서는 일인지도 모릅니다. 따로, 또 같이 평등을 향해 나아가는 이 항해에 여러분을 초대합니다.</p>
+    </div>
+
+    <div class="hl">
+      <article class="open">
+        <span class="tag">출항 · 오픈 포럼</span>
+        <h3>바울에게 차별금지법을 묻다</h3>
+        <p>사랑, 성서해석, 그리스도인의 공적 책임. 로마서 1장과 고린도전서 6장을 오늘의 자리에서 다시 읽습니다.</p>
+        <dl><dt>일시</dt><dd>11월 6일(금) 저녁 7시 30분</dd><dt>장소</dt><dd>향린교회 본당</dd><dt>강사</dt><dd>김선용</dd></dl>
+      </article>
+      <article class="close">
+        <span class="tag">입항 · 클로징 연합예배</span>
+        <h3>돛을 놓지 않은 이들과 함께</h3>
+        <p>기쁨의 바람도, 좌절의 태풍도 만났습니다. 누구도 배제되지 않는 교회와 세상을 향한 항해를 이어갈 새 힘을 얻습니다.</p>
+        <dl><dt>일시</dt><dd>11월 27일(금) 저녁 7시 30분</dd><dt>장소</dt><dd>성공회 대학로 교회 대성전</dd></dl>
+      </article>
+    </div>
+
+    <div class="about">
+      <h3>따뜻한 소란 평등한 우리</h3>
+      <p>차별과 혐오 없는 세상을 바라는 그리스도인 네트워크가 매년 11월 환대와 평등을 주제로 여는 프로그램입니다. 1회 「따뜻한 소란 평등한 우리」, 2회 「환대의 빈의자」에 이어 3회 「환대의 항해」로 이어집니다.</p>
+      <p class="orgs" id="orgs"></p>
+      <small>© 2026 차별과혐오없는세상을바라는그리스도인네트워크 · 문의/후원 링크는 추후 안내됩니다</small>
+    </div>
+  </div>
+</dialog>
+
+<!-- 2. 캘린더 -->
+<dialog id="d-calendar" class="panel" aria-labelledby="t-calendar">
+  <div class="panel-in">
+    <button class="x" data-close aria-label="닫기">✕</button>
+    <p class="kicker">CALENDAR</p>
+    <h2 id="t-calendar">11월 항해 지도</h2>
+    <p class="lead">일정을 누르면 프로그램 상세가 열립니다.</p>
+    <div class="cal" id="cal"></div>
+    <div class="legend" id="legend"></div>
+  </div>
+</dialog>
+
+<!-- 3. 프로그램 -->
+<dialog id="d-programs" class="panel" aria-labelledby="t-programs">
+  <div class="panel-in">
+    <button class="x" data-close aria-label="닫기">✕</button>
+    <p class="kicker">PROGRAMS</p>
+    <h2 id="t-programs">기항지 안내</h2>
+    <p class="lead">단체마다 다른 배가 같은 바다에서 만납니다. 관심 있는 항로를 골라보세요.</p>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</dialog>
+
+<!-- 4. 스탬프 -->
+<dialog id="d-stamp" class="panel" aria-labelledby="t-stamp">
+  <div class="panel-in">
+    <button class="x" data-close aria-label="닫기">✕</button>
+    <p class="kicker">STAMP TOUR</p>
+    <h2 id="t-stamp">항해 스탬프 엽서</h2>
+    <p class="lead">현장에서 받는 엽서에 프로그램마다 스탬프를 찍어 보세요. 여기서는 참여한 행사를 눌러 나만의 항해 기록을 남길 수 있어요. (이 기기에만 저장됩니다)</p>
+    <div class="postcard" id="postcard"></div>
+    <p class="progress" id="progress"></p>
+  </div>
+</dialog>
+
+<!-- 프로그램 상세 (패널 위에 겹쳐 열림) -->
+<dialog id="modal" aria-label="프로그램 상세"></dialog>
+
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>
