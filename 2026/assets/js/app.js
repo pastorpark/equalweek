@@ -109,21 +109,36 @@
     dlg.addEventListener('click', ev=>{ if(ev.target===dlg || ev.target.closest('[data-close]')) dlg.close(); });
   })();
 
-  // 스탬프
+  // 스탬프: 누를 때마다 없음 → 참가 예정 → 참가 → 없음
   (function(){
     const KEY='equalweek2026-stamps';
-    let got = [];
-    try{ got = JSON.parse(localStorage.getItem(KEY)) || []; }catch(e){}
+    const RANKS=[[7,'베테랑 항해자'],[5,'항해자'],[3,'출항자']];
+    const LABEL={plan:'참가 예정',done:'참가'};
+    let got = {};
+    try{
+      const v = JSON.parse(localStorage.getItem(KEY));
+      // 예전 형식(참가한 id 배열)은 '참가'로 옮긴다
+      if(Array.isArray(v)) v.forEach(id=>got[id]='done');
+      else if(v && typeof v==='object') got = v;
+    }catch(e){}
     const box = $('#postcard');
     const sorted = [...E].sort((a,b)=>a.dates[0]-b.dates[0]);
     const draw = ()=>{
-      box.innerHTML = sorted.map(e=>`<button class="slot" data-id="${e.id}" aria-pressed="${got.includes(e.id)}">${esc(e.short)}</button>`).join('');
-      $('#progress').textContent = `${got.length} / ${E.length} 기항지 도착` + (got.length===E.length?' · 항해 완주를 축하합니다! ⛵':'');
+      box.innerHTML = sorted.map(e=>{
+        const st = got[e.id] || '';
+        return `<button class="slot" data-id="${esc(e.id)}" data-state="${st}" aria-label="${esc(e.short)} ${LABEL[st]||'미참가'}"><span>${esc(e.short)}</span>${st?`<em>${LABEL[st]}</em>`:''}</button>`;
+      }).join('');
+      const n = E.filter(e=>got[e.id]==='done').length;
+      const planned = E.filter(e=>got[e.id]==='plan').length;
+      const r = RANKS.find(x=>n>=x[0]);
+      const next = [...RANKS].reverse().find(x=>n<x[0]);
+      $('#rank').innerHTML = r ? `<small>현재 등급</small><b>${r[1]}</b>` : `<small>현재 등급</small><b class="none">아직 출항 전</b>`;
+      $('#progress').textContent = `참가 ${n}곳 · 참가 예정 ${planned}곳` + (next ? ` · ${next[1]}까지 ${next[0]-n}곳 남음` : ' · 최고 등급에 도달했습니다! ⛵');
     };
     box.addEventListener('click', ev=>{
       const b = ev.target.closest('.slot'); if(!b) return;
-      const id = b.dataset.id;
-      got = got.includes(id) ? got.filter(x=>x!==id) : [...got,id];
+      const id = b.dataset.id, cur = got[id];
+      if(!cur) got[id]='plan'; else if(cur==='plan') got[id]='done'; else delete got[id];
       try{ localStorage.setItem(KEY, JSON.stringify(got)); }catch(e){}
       draw();
     });
@@ -144,6 +159,33 @@
     });
     const h = location.hash.slice(1);
     if(h) open(h);
+  })();
+
+  // 섬 메뉴: 접속할 때마다 위치를 조금씩 바꾼다 (세로 화면은 가로 전체에 흩어 배치)
+  (function(){
+    const nav = $('.isles'), isles = [...document.querySelectorAll('.isle')];
+    if(!nav || !isles.length) return;
+    const r = (a,b)=>a+Math.random()*(b-a);
+    const set = (el,x,y)=>{ el.style.setProperty('--jx',x.toFixed(1)+'px'); el.style.setProperty('--jy',y.toFixed(1)+'px'); };
+    const scatter = ()=>{
+      if(matchMedia('(orientation:landscape)').matches){
+        const v = Math.min(innerWidth,innerHeight)/100;
+        isles.forEach(el=>set(el, r(-4,4)*v, r(-4,4)*v));
+        return;
+      }
+      const half = nav.clientWidth/2, s = isles[0].offsetWidth;
+      const free = Math.max(0,(half-s)/2-10);                 // 각 칸 안에서 움직일 수 있는 폭
+      const gap = parseFloat(getComputedStyle(nav).rowGap)||40;
+      const sp = Math.min(gap*.35,20);                         // 위아래로 어긋나는 정도
+      isles.forEach((el,i)=>{
+        const left = i%2===0;                                  // 바깥쪽으로는 끝까지, 안쪽으로는 60%까지만
+        const x = left ? r(-free,.6*free) : r(-.6*free,free);
+        const y = left ? r(0,sp) : r(sp*1.2,sp*2);
+        set(el,x,y);
+      });
+    };
+    scatter();
+    matchMedia('(orientation:landscape)').addEventListener('change',scatter);
   })();
 
   // 주관 단체
