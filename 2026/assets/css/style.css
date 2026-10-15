@@ -171,6 +171,7 @@ dialog.panel{width:min(1100px,calc(100% - 24px))}
 
 /* 프로그램 상세 */
 dialog#modal{width:min(940px,calc(100% - 24px))}
+dialog#modal>.x{position:sticky;float:right;top:0;margin:16px 16px 0 0}
 .m{display:grid;grid-template-columns:300px 1fr;gap:32px;padding:32px;position:relative}
 .m .side{position:sticky;top:0;align-self:start}
 .m .eyebrow-s{font-size:13px;font-weight:700;color:var(--land-deep)}
@@ -216,7 +217,7 @@ dialog#modal{width:min(940px,calc(100% - 24px))}
   .panel .x{margin:-12px -8px 0 0}
   .hl{grid-template-columns:1fr}
 }
-@media(max-width:720px){.m{grid-template-columns:1fr;gap:20px;padding:20px}.m .side .poster{max-width:240px;margin:0 auto}.m .sess li{grid-template-columns:38px 88px 1fr}}
+@media(max-width:720px){.m{grid-template-columns:1fr;gap:20px;padding:20px}.m .side{position:static}.m .side .poster{max-width:240px;margin:0 auto}.m .sess li{grid-template-columns:38px 88px 1fr}}
 @media(max-width:520px){
   dialog{border-radius:22px}
   .grid{display:flex;flex-direction:column;gap:10px}
@@ -230,7 +231,7 @@ dialog#modal{width:min(940px,calc(100% - 24px))}
   .card .eyebrow-s{font-size:11px}
 }
 @media(max-width:600px){
-  dialog.panel,dialog#modal{width:100%;height:100%;max-width:100%;max-height:100%;max-height:100dvh;margin:0;border-radius:0;border:0}
+  dialog.panel,dialog#modal{width:calc(100% - 10px);height:calc(100% - 10px);max-width:calc(100% - 10px);max-height:calc(100% - 10px);max-height:calc(100dvh - 10px);margin:auto;border-radius:22px;border:0}
   .panel-in{padding-top:max(28px,env(safe-area-inset-top));padding-bottom:max(36px,env(safe-area-inset-bottom))}
   .m{padding-top:max(20px,env(safe-area-inset-top));padding-bottom:max(20px,env(safe-area-inset-bottom))}
   .cal{grid-template-columns:1fr}
