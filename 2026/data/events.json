@@ -52,7 +52,7 @@
    ],
    "time": "매주 월 저녁 7시 30분 (4회)",
    "desc": "말할 권리, 우리를 부르는 이름, 몸과 몸 사이의 경계, 사람을 잇는 관계. 네 번의 강의에서 마가복음 속 경계를 넘는 사람들을 따라가며 차별과 혐오의 세계를 다르게 상상하게 하는 복음의 힘을 찾습니다.",
-   "speaker": "정혜진 (이화여대 / 평등세상 집행위원장)",
+   "speaker": "정혜진 (신약성서학자, 평등세상 집행위원장)",
    "themes": [
     "말할 권리",
     "우리를 부르는 이름",
@@ -188,7 +188,8 @@
    "place": "성공회 대학로교회 4층",
    "addr": "서울시 종로구 대학로 93",
    "host": "(준)성공회 무지개숲 네트워크 & 길찾는교회",
-   "apply": ""
+   "apply": "https://docs.google.com/forms/d/1wnJaSLlnK0QowpNhgvXpiBL5dqta3uM76JehSqV-234/viewform",
+   "poster": "assets/img/anglican.jpeg"
   },
   {
    "id": "tarae",
