@@ -97,6 +97,7 @@
             <dt>장소</dt><dd>${e.addr?`<a href="${mapUrl(e)}" target="_blank" rel="noopener">${esc(e.place)}</a><br><small>${esc(e.addr)}</small>`:esc(e.place)}</dd>
             ${e.fee?`<dt>참가비</dt><dd>${esc(e.fee.replace('참가비 ',''))}</dd>`:''}
             <dt>주관</dt><dd>${esc(e.host)}</dd>
+            ${e.contact?`<dt>문의</dt><dd>${esc(e.contact)}</dd>`:''}
           </dl>
           <div class="apply">${safeUrl(e.apply)
             ? `<a class="btn fill" href="${esc(safeUrl(e.apply))}" target="_blank" rel="noopener">신청하기</a>`
