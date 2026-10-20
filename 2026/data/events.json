@@ -35,7 +35,7 @@
    "addr": "서울시 종로구 경희궁2길 11",
    "host": "평등세상",
    "fee": "무료",
-   "apply": "",
+   "apply": "https://armc.cc/1106forum",
    "poster": "assets/img/openingforum.png",
    "contact": "박현철 / park@ichungeoram.com",
    "star": 1
@@ -110,7 +110,9 @@
    "place": "예수회센터 이냐시오카페",
    "addr": "서울시 마포구 신수동 서강대길 19",
    "host": "평등세상",
-   "apply": ""
+   "apply": "https://forms.gle/Brd3sGJiKGTe1i4S7",
+   "poster": "assets/img/film.png",
+   "contact": "소소 / soso.arcus@gmail.com"
   },
   {
    "id": "migrant",
@@ -144,7 +146,9 @@
    "addr": "서울시 종로구 김상옥로 30",
    "host": "미국장로교한국선교회 & 무지개 신학교",
    "fee": "5,000원",
-   "apply": ""
+   "apply": "https://forms.gle/XfH2HuGiC5UEWB4t7",
+   "poster": "assets/img/craft.png",
+   "contact": "그림자 / 010-2720-4511"
   },
   {
    "id": "history",
@@ -171,7 +175,8 @@
    "host": "청어람ARMC",
    "fee": "50,000원",
    "apply": "https://ichungeoram.com/shop_view/?idx=297",
-   "poster": "assets/img/chungeoram.jpeg"
+   "poster": "assets/img/chungeoram.jpeg",
+   "contact": "청어람 / iam@ichungeoram.com"
   },
   {
    "id": "anglican",
@@ -190,8 +195,9 @@
    "place": "성공회 대학로교회 4층",
    "addr": "서울시 종로구 대학로 93",
    "host": "(준)성공회 무지개숲 네트워크 & 길찾는교회",
-   "apply": "https://docs.google.com/forms/d/1wnJaSLlnK0QowpNhgvXpiBL5dqta3uM76JehSqV-234/viewform",
-   "poster": "assets/img/anglican.jpeg"
+   "apply": "https://docs.google.com/forms/d/e/1FAIpQLSdx4bGGd9kjyZyGL8OOs9NH--VhcwFB3LSBhaddgNQmS-gL7g/viewform",
+   "poster": "assets/img/anglican.png",
+   "contact": "성공회 무지개숲 네트워크 / Skhmuzige@gmail.com\n\n소통 담당 활동가: 권희, 010-6755-1084 / 자캐오 010-5663-7180"
   },
   {
    "id": "tarae",
@@ -258,7 +264,9 @@
    "place": "원효로 예수성심성당",
    "addr": "서울시 용산구 원효로19길 49",
    "host": "가톨릭 앨라이 아르쿠스",
-   "apply": ""
+   "apply": "https://docs.google.com/forms/d/1ReWfQ3nrdLyT_LCAa2EFxwMnLiXWfsafbo3_JZG19jc/viewform",
+   "poster": "assets/img/mass.png",
+   "contact": "arcuskr@gmail.com"
   },
   {
    "id": "classroom",
