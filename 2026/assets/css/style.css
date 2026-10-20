@@ -222,7 +222,7 @@ dialog#modal>.x{position:sticky;float:right;top:0;margin:16px 16px 0 0}
   dialog{border-radius:22px}
   .grid{display:flex;flex-direction:column;gap:10px}
   .card{flex-direction:row;padding:8px;border-radius:18px;gap:10px}
-  .card .poster{width:96px;flex:none;border-radius:12px}
+  .card .poster{width:120px;flex:none;border-radius:12px}
   .card .info{padding:0}
   .card h3{font-size:15px}
   .card .line{font-size:12.5px}
