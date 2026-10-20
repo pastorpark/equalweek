@@ -15,6 +15,7 @@
   const $ = s => document.querySelector(s);
   const WD = ['일','월','화','수','목','금','토'];
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const nl2br = s => esc(s).replace(/\n/g, '<br>');
   const dateLabel = e => {
     const d = e.dates, f = n => `11/${n}(${WD[new Date(2026,10,n).getDay()]})`;
     return d.length === 1 ? f(d[0]) : `${f(d[0])} – ${f(d[d.length-1])}`;
@@ -88,7 +89,7 @@
           <span class="eyebrow-s">${esc(pre||CATS[e.cat].label)}</span>
           <h2>${esc(name)}</h2>
           ${e.sub?`<p class="sub">${esc(e.sub)}</p>`:''}
-          <h4>행사 소개</h4><p>${esc(e.desc)}</p>
+          <h4>행사 소개</h4><p>${nl2br(e.desc)}</p>
           ${sess}
           ${e.speaker?`<h4>강사</h4><p>${esc(e.speaker)}</p>`:''}
           <h4>정보</h4>
@@ -97,7 +98,7 @@
             <dt>장소</dt><dd>${e.addr?`<a href="${mapUrl(e)}" target="_blank" rel="noopener">${esc(e.place)}</a><br><small>${esc(e.addr)}</small>`:esc(e.place)}</dd>
             ${e.fee?`<dt>참가비</dt><dd>${esc(e.fee.replace('참가비 ',''))}</dd>`:''}
             <dt>주관</dt><dd>${esc(e.host)}</dd>
-            ${e.contact?`<dt>문의</dt><dd>${esc(e.contact)}</dd>`:''}
+            ${e.contact?`<dt>문의</dt><dd>${nl2br(e.contact)}</dd>`:''}
           </dl>
           <div class="apply">${safeUrl(e.apply)
             ? `<a class="btn fill" href="${esc(safeUrl(e.apply))}" target="_blank" rel="noopener">신청하기</a>`
