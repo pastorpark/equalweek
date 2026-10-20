@@ -80,8 +80,8 @@
     const dlg = $('#modal');
     const open = openDetail = id => {
       const e = byId[id], [pre,name] = split(e.title);
-      const sess = e.dates.length>1 ? `<h4>커리큘럼</h4><ul class="sess">${e.dates.map((n,i)=>
-        `<li><b>${i+1}회</b><span>${dayLabel(n)}</span><em>${e.themes?esc(e.themes[i]):'주제 추후 공개'}</em></li>`).join('')}</ul>` : '';
+      const sess = e.dates.length>1 && e.themes ? `<h4>커리큘럼</h4><ul class="sess">${e.dates.map((n,i)=>
+        `<li><b>${i+1}회</b><span>${dayLabel(n)}</span><em>${esc(e.themes[i])}</em></li>`).join('')}</ul>` : '';
       dlg.innerHTML = `<button class="x" data-close aria-label="닫기">✕</button>
       <div class="m">
         <div class="side">${poster(e)}</div>
