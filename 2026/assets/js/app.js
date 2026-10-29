@@ -102,7 +102,7 @@
           </dl>
           <div class="apply">${safeUrl(e.apply)
             ? `<a class="btn fill" href="${esc(safeUrl(e.apply))}" target="_blank" rel="noopener">신청하기</a>`
-            : `<span class="btn off">신청 링크 준비 중</span>`}</div>
+            : `<span class="btn off">신청없이 참석가능</span>`}</div>
         </div></div>`;
       dlg.showModal(); dlg.scrollTop = 0;
     };

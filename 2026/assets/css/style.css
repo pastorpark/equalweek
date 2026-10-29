@@ -101,7 +101,7 @@ dialog.panel{width:min(1100px,calc(100% - 24px))}
 .btn{display:inline-block;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:700;font-size:14.5px;border:2px solid var(--ink);transition:.15s}
 .btn.fill{background:var(--orange);color:var(--ink)}
 .btn.fill:hover{background:#f19a72;transform:translateY(-1px)}
-.btn.off{background:transparent;color:var(--muted);cursor:not-allowed;border-style:dashed;border-color:var(--coast)}
+.btn.off{background:transparent;color:var(--muted);cursor:default;border-style:dashed;border-color:var(--coast)}
 
 /* 소개 */
 .body{max-width:700px;margin:28px auto 0;font-size:17px;line-height:1.95}
