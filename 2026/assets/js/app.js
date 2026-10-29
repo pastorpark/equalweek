@@ -91,7 +91,7 @@
           ${e.sub?`<p class="sub">${esc(e.sub)}</p>`:''}
           <h4>행사 소개</h4><p>${nl2br(e.desc)}</p>
           ${sess}
-          ${e.speaker?`<h4>강사</h4><p>${esc(e.speaker)}</p>`:''}
+          ${e.speaker?`<h4>강사</h4><p>${nl2br(e.speaker)}</p>`:''}
           <h4>정보</h4>
           <dl>
             <dt>일시</dt><dd>${dateLabel(e)} · ${esc(e.time)}</dd>
