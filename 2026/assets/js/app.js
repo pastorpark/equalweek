@@ -18,6 +18,7 @@
   const nl2br = s => esc(s).replace(/\n/g, '<br>');
   const dateLabel = e => {
     const d = e.dates, f = n => `11/${n}(${WD[new Date(2026,10,n).getDay()]})`;
+    if (!d.length) return '';
     return d.length === 1 ? f(d[0]) : `${f(d[0])} – ${f(d[d.length-1])}`;
   };
   const safeUrl = u => /^https?:\/\//i.test(u) ? u : '';
@@ -62,7 +63,7 @@
           <span class="eyebrow-s">${esc(pre||CATS[e.cat].label)}</span>
           <h3>${esc(name)}</h3>
           <p class="line">${esc(e.line)}</p>
-          <div class="when"><b>${dateLabel(e)}</b>${esc(e.time)}</div>
+          <div class="when">${dateLabel(e)?`<b>${dateLabel(e)}</b>`:''}${esc(e.time)}</div>
           <span class="more">상세 보기 →</span>
         </div>
       </article>`;}).join('');
@@ -95,13 +96,13 @@
           ${e.speaker?`<h4>강사</h4><p>${nl2br(e.speaker)}</p>`:''}
           <h4>정보</h4>
           <dl>
-            <dt>일시</dt><dd>${dateLabel(e)} · ${esc(e.time)}</dd>
+            <dt>일시</dt><dd>${dateLabel(e)?`${dateLabel(e)} · `:''}${esc(e.time)}</dd>
             <dt>장소</dt><dd>${e.addr?`<a href="${mapUrl(e)}" target="_blank" rel="noopener">${esc(e.place)}</a><br><small>${esc(e.addr)}</small>`:esc(e.place)}</dd>
             ${e.fee?`<dt>참가비</dt><dd>${esc(e.fee.replace('참가비 ',''))}</dd>`:''}
             <dt>주관</dt><dd>${esc(e.host)}</dd>
             ${e.contact?`<dt>문의</dt><dd>${nl2br(e.contact)}</dd>`:''}
           </dl>
-          ${e.notice ? '' : `<div class="apply">${safeUrl(e.apply)
+          ${e.notice || !e.dates.length ? '' : `<div class="apply">${safeUrl(e.apply)
             ? `<a class="btn fill" href="${esc(safeUrl(e.apply))}" target="_blank" rel="noopener">신청하기</a>`
             : `<span class="btn off">신청없이 참석가능</span>`}</div>`}
         </div></div>`;
