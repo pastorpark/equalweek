@@ -31,7 +31,7 @@
     cal.innerHTML = WD.map(w=>`<div class="dow">${w}</div>`).join('');
     for(let i=0;i<start;i++) cal.insertAdjacentHTML('beforeend','<div class="day empty"></div>');
     for(let n=1;n<=28;n++){
-      const chips = E.filter(e=>e.dates.includes(n)).map(e=>
+      const chips = E.filter(e=>!e.notice && e.dates.includes(n)).map(e=>
         `<button class="chip${e.star?' star':''}" data-cat="${e.cat}" data-go="${e.id}">${esc(e.short)}</button>`).join('');
       cal.insertAdjacentHTML('beforeend',`<div class="day"><span class="n">${n}<span class="w">(${WD[new Date(2026,10,n).getDay()]})</span></span>${chips}</div>`);
     }
@@ -89,6 +89,7 @@
           <span class="eyebrow-s">${esc(pre||CATS[e.cat].label)}</span>
           <h2>${esc(name)}</h2>
           ${e.sub?`<p class="sub">${esc(e.sub)}</p>`:''}
+          ${e.notice?`<p class="notice">${esc(e.notice)}</p>`:''}
           <h4>행사 소개</h4><p>${nl2br(e.desc)}</p>
           ${sess}
           ${e.speaker?`<h4>강사</h4><p>${nl2br(e.speaker)}</p>`:''}
@@ -100,9 +101,9 @@
             <dt>주관</dt><dd>${esc(e.host)}</dd>
             ${e.contact?`<dt>문의</dt><dd>${nl2br(e.contact)}</dd>`:''}
           </dl>
-          <div class="apply">${safeUrl(e.apply)
+          ${e.notice ? '' : `<div class="apply">${safeUrl(e.apply)
             ? `<a class="btn fill" href="${esc(safeUrl(e.apply))}" target="_blank" rel="noopener">신청하기</a>`
-            : `<span class="btn off">신청없이 참석가능</span>`}</div>
+            : `<span class="btn off">신청없이 참석가능</span>`}</div>`}
         </div></div>`;
       dlg.showModal(); dlg.scrollTop = 0;
     };

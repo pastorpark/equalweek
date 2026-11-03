@@ -177,6 +177,7 @@ dialog#modal>.x{position:sticky;float:right;top:0;margin:16px 16px 0 0}
 .m .eyebrow-s{font-size:13px;font-weight:700;color:var(--land-deep)}
 .m h2{font-size:26px;margin:6px 44px 6px 0}
 .m .sub{color:var(--muted);font-size:15px}
+.m .notice{margin-top:14px;padding:12px 16px;border-radius:12px;background:#fff4e0;border:1.5px solid var(--orange);color:var(--orange-deep);font-weight:700;font-size:14.5px}
 .m h4{font-size:13px;letter-spacing:.1em;color:var(--orange-deep);font-weight:700;margin:26px 0 8px}
 .m p{font-size:15.5px;line-height:1.85}
 .m .sess{list-style:none;padding:0;border:1.5px solid var(--coast);border-radius:14px;overflow:hidden;background:#fff}
